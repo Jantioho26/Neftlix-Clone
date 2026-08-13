@@ -3,9 +3,9 @@ import axios from './axios';
 import requests from './requests';
 import './Row.css';
 
-const base_url = "https://image.tmdb.org/t/p/original/";
+const base_url = "https://image.tmdb.org/t/p/original";
 
-function Row({ title, fetchURL, isLargeRow }) {
+const Row = ({ title, fetchURL, isLargeRow })  => {
     const [movies, setMovies] = useState([]);
 
 useEffect(() => {

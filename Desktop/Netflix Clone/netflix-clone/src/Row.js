@@ -40,6 +40,7 @@ const opts = {
         .catch(error => console.log(error))
     } 
    }
+ 
 
     return (
         <div className="row">

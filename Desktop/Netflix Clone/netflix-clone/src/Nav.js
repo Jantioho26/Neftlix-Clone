@@ -1,9 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, handleScroll } from 'react';
 
+const Nav = () => {
+  const [show, setShow] = useState(false)
+  
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if(window.scrollY > 100) {
+        setShow(true);
+      }else setShow(false);      
+    });
+    return() => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-function Nav() {
+ 
   return (
-        <div className="nav">
+        <div className={`nav ${show && "nav__black"}`}>
       <img
       className="nav__logo"
       src="https://download.logo.wine/logo/Netflix/Netflix-Logo.wine.png"
@@ -20,4 +33,5 @@ function Nav() {
 }
 
 export default Nav
+
 

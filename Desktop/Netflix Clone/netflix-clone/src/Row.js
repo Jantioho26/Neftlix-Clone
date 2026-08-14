@@ -19,6 +19,7 @@ useEffect(() => {
 
 console.table(movies)
 
+console.log(movies);
     return (
         <div className="row">
            <h2>{title}</h2>
@@ -29,7 +30,11 @@ console.table(movies)
             <img 
             key={movie.id}
             className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-            src={`${base_URL}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
+            src={`${base_URL}${
+                isLargeRow 
+                ? movie.poster_path || movie.backdrop_path 
+                : movie.backdrop_path || movie.poster_path
+            }`} 
             alt={movie.name} 
             />
         ))}

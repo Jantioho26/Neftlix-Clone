@@ -1,18 +1,20 @@
-import React, { useState, useEffect, handleScroll } from 'react';
+import React, { useState, useEffect } from 'react';
+
 
 const Nav = () => {
-  const [show, setShow] = useState(false)
-  
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if(window.scrollY > 100) {
-        setShow(true);
-      }else setShow(false);      
-    });
-    return() => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const [show, setShow] = useState(false);
+
+ useEffect(() => {
+  const handleScroll = () => {
+    setShow(window.scrollY > 100);
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  return () => {
+    window.removeEventListener('scroll', handleScroll); //cleanup
+ }; 
+}, []);
 
  
   return (
@@ -29,8 +31,8 @@ const Nav = () => {
        alt="Netflix Avatar"
        />
     </div>
-  )
-}
+  );
+};
 
 export default Nav
 

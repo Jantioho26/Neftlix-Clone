@@ -28,18 +28,25 @@ const opts = {
     }
    };
 
-   const handleClick = (movie) => {
-    if (trailerUrl) {
-        setTrailerUrl('');
-    } else{  
-        movieTrailer(movie?.name || "")
-        .then(url => {
-        const urlParams = new URLSearchParams(new URL).search;
-        setTrailerUrl(urlParams.get('v'));
-        })
-        .catch(error => console.log(error))
-    } 
-   }
+  const handleClick = (movie) => {
+  if (trailerUrl) {
+    setTrailerUrl("");
+  } else {
+    movieTrailer(movie?.title || movie?.name || "")
+      .then((url) => {
+        if (url) {
+          const urlParams = new URLSearchParams(
+            new URL(url).search
+          );
+
+          setTrailerUrl(urlParams.get("v"));
+        } else {
+          console.log("No trailer found");
+        }
+      })
+      .catch((error) => console.log(error));
+  }
+};
  
 
     return (

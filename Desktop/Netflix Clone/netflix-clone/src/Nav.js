@@ -19,11 +19,11 @@ const Nav = () => {
  
   return (
         <div className={`nav ${show && "nav__black"}`}>
-      <img
-      className="nav__logo"
-      src="https://download.logo.wine/logo/Netflix/Netflix-Logo.wine.png"
-      alt="Netflix Logo"
-        />
+  <img
+  className="nav__logo"
+  src="/Netflix_Logomark.png"
+  alt="Netflix Logo"
+/>
 
       <img 
       className="nav__avatar"
